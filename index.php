@@ -1,11 +1,12 @@
 <?php
-
+//oculta os erros
 error_reporting(E_ALL ^ E_DEPRECATED);
-// definições de host, database, usuário e senha
+// definições endereço do banco de dados, nome do banco dados , usuário e senha
 $host = "sql208.epizy.com";
 $db   = "epiz_33750471_aula4tii";
 $user = "epiz_33750471";
 $pass = "Q5dSCPqDru4tKM";
+
 // conecta ao banco de dados
 $con = mysql_pconnect($host, $user, $pass) or trigger_error(mysql_error(),E_USER_ERROR);
 // seleciona a base de dados em que vamos trabalhar
@@ -19,7 +20,6 @@ $linha = mysql_fetch_assoc($dados);
 // calcula quantos dados retornaram
 $total = mysql_num_rows($dados);
 ?>
-
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -33,8 +33,9 @@ $total = mysql_num_rows($dados);
     <title>Hello, world!</title>
   </head>
   <body>
-  <div class="container-fluid">
-	<div class="row">
+    
+
+
   <?php
 	// se o número de resultados for maior que zero, mostra os dados
 	if($total > 0) {
@@ -42,25 +43,17 @@ $total = mysql_num_rows($dados);
 		do {
 ?>
 
-
-	<div class="card" style="width: 18rem;">
-  <img src="<?=$linha['foto']?>" class="card-img-top" alt="...">
-  <ul class="list-group list-group-flush">
-  	<li class="list-group-item"><b>Nome:</b> <?=$linha['nome']?> </li>
-    <li class="list-group-item"><b>Valor:</b><?=$linha['valor']?> </li>
-    <li class="list-group-item"> Cliente:<b> <?=$linha['identificador']?></b></li>
-  </ul>
-  </div>
+<div class="card" style="width: 18rem;">
+  <img src="<?=$linha['url']?>" class="card-img-top" alt="...">
   
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Nome do produto: <?=$linha['nome']?></li>
+    <li class="list-group-item">Valor do produto: <?=$linha['valor']?></li>
+    <li class="list-group-item">Codigo do produto: <?=$linha['identificacao']?></li>
+  </ul>
+  
+</div>
 
-
-
-
-
-
-
-
-			
 <?php
 		// finaliza o loop que vai mostrar os dados
 		}while($linha = mysql_fetch_assoc($dados));
