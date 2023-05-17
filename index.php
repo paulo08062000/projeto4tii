@@ -1,11 +1,11 @@
 <?php
-$pesquisa = "Smart TV Philco PTV32G70RCH LED Roku OS HD 32 110V/220V";
+
 error_reporting(E_ALL ^ E_DEPRECATED);
 // definições de host, database, usuário e senha
 $host = "sql208.epizy.com";
-$db   = "epiz_33750471_aula4tii";
-$user = "epiz_33750471";
-$pass = "Q5dSCPqDru4tKM";
+$db   = "";
+$user = "";
+$pass = "";
 // conecta ao banco de dados
 $con = mysql_pconnect($host, $user, $pass) or trigger_error(mysql_error(),E_USER_ERROR);
 // seleciona a base de dados em que vamos trabalhar
